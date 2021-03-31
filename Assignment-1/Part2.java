@@ -7,9 +7,6 @@
   - Check to see whether the strings are of the same length
   - Loop through checking whether the second string has identical characters to the first
 */
-
-
-
 public boolean isStringPermutation(String s1, String s2){
     int lengthS1 = s1.length(); //length of first string
     int lengthS2 = s2.length();
@@ -35,4 +32,17 @@ public boolean isStringPermutation(String s1, String s2){
     }
   
     return true;
+}
+
+
+
+
+/*
+
+
+*/
+public List<List<Integer>> pairsThatEqualSum(List<Integer> inputArray, Integer targetSum){
+
+
+
 }
