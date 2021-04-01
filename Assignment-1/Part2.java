@@ -6,6 +6,8 @@
   Steps
   - Check to see whether the strings are of the same length
   - Loop through checking whether the second string has identical characters to the first
+  
+  Time complexity: O(N)
 */
 public boolean isStringPermutation(String s1, String s2){
     int lengthS1 = s1.length(); //length of first string
@@ -38,11 +40,33 @@ public boolean isStringPermutation(String s1, String s2){
 
 
 /*
-
-
+Time Complexity: O(N^2)
 */
 public List<List<Integer>> pairsThatEqualSum(List<Integer> inputArray, Integer targetSum){
-
-
-
+  List<List<Integer>> resultArray = new ArrayList<>();
+  boolean proceedAddition = true;
+  int findInteger;
+  
+  for(int i=0 ; i < inputArray.size() ; i++){
+    findInteger = targetSum - inputArray.get(i);
+    if(findInteger >= 0 && inputArray.contains(findInteger)){
+      
+      //Ensuring that the pair does not already exist in the resulting array
+      if(i>0){
+        int resultSize = resultArray.size();
+        while((resultSize-1)>=0){
+          if(resultArray.get(resultSize-1).contains(findInteger) && resultArray.get(resultSize-1).contains(inputArray.get(i))){
+            proceedAddition = false;
+            break;
+          }
+          --resultSize;
+        }
+        //Adding the pair of two numbers that equal the target
+        if(proceedAddition == true){
+          ArrayList<Integer> pair = new ArrayList<>();
+          pair.add(inputArray.get(i));
+          pair.add(findInteger);
+          resultArray.add(pair);
+        }
+      }
 }
