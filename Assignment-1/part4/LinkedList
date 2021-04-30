@@ -39,7 +39,6 @@ public class LinkedList<T> implements GenericNode<T> {
         //If list is empty 
         if (isEmpty()) {
           throw new NullPointerException("List is empty");
-          val = null;
         }
 
         //Else if only one node exists, the head and tail are set to null
@@ -48,7 +47,6 @@ public class LinkedList<T> implements GenericNode<T> {
           head = null;
           tail = null;
           size = 0;
-          return val;
         }
 
         // if size of list is greater than one
@@ -59,13 +57,15 @@ public class LinkedList<T> implements GenericNode<T> {
           while (temp.next.next != null)  {
                 temp = temp.next;
             }
-        
-            val = temp.next.value; // Assign the value of the last node
-            temp.next = null; // set second last node to null
-            tail = temp; // set tail to the second last node
-            size--;
-            return val; 
+           if(tail == temp.next){
+                tail = temp;
+            }
+           val = temp.next.value; // Assign the value of the last node
+           temp.next = null; // set second last node to null
+           tail = temp; // set tail to the second last node
+           size--;
           }
+          return val;
     }
     
     public void insert(int index, T t) {
@@ -159,6 +159,40 @@ public class LinkedList<T> implements GenericNode<T> {
     
     public int size() {
         return size;
+    }
+    
+    //BONUS: Made an attempt
+    public boolean isPalindrome(){
+        System.out.print(size());
+       if(size() == 2){
+           System.out.print("Size == 2");
+           return true;
+       }
+       if(size() > 2){
+           ArrayList<Node> addresses = new ArrayList<>();
+           Node currNode = head;
+           while (currNode != null){
+               addresses.add(currNode);
+               currNode = currNode.next;
+           }
+           Integer mid = size()/2;
+           mid = mid + 1;
+           Integer front = 0;
+           Integer back = size();
+           while(front < mid){
+               System.out.println("Check");
+               if( ! addresses.get(front).value.equals(addresses.get(back).value)){
+                   System.out.println(addresses.get(front).value);
+                   System.out.println(addresses.get(back).value);
+                   return false;
+               }
+               front++;
+               back--;
+           }
+           return true;
+       }
+       return false;
+       
     }
     
     
