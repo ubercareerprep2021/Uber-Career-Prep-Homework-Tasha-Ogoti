@@ -132,7 +132,7 @@ public class LinkedList<T> implements GenericNode<T> {
         }
         Node deleteNode = currNode.next;
         currNode.next = deleteNode.next;
-        deletNode.next = null;
+        deleteNode.next = null;
         deleteNode = null;
       }
     }
