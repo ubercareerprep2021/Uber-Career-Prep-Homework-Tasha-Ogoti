@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class ListPhonebook implements Phonebook{
     private String name;
     private long phoneNumber;
-    Integer size = 0;
+    private Integer size = 0;
     
     ArrayList<ListPhonebook> phoneList = new ArrayList<>();
     
