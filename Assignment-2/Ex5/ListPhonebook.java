@@ -44,9 +44,9 @@ public class ListPhonebook implements Phonebook{
                 return phone.phoneNumber;
             }
         }
-        // If it does not exist returns 0
+        // If it does not exist returns -1
         //System.out.println("Not found");
-        return 0L;
+        return -1L;
     }
     
 }
