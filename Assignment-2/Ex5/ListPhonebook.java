@@ -38,11 +38,13 @@ public class ListPhonebook implements Phonebook{
     public long find(String name) {
         
         for(ListPhonebook phone: phoneList){
+            // If exists returns the phoneNumber
             if(phone.name.equals(name)){
                 //System.out.println("Found");
                 return phone.phoneNumber;
             }
         }
+        // If it does not exist returns 0
         //System.out.println("Not found");
         return 0L;
     }
