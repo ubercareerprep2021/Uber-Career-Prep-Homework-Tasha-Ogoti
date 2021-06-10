@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 
 /**
@@ -8,9 +7,14 @@ import java.util.ArrayList;
 public class ListPhonebook implements Phonebook{
     private String name;
     private long phoneNumber;
-    Integer size;
+    Integer size = 0;
     
     ArrayList<ListPhonebook> phoneList = new ArrayList<>();
+    
+    public ListPhonebook(){
+        this.name = "";
+        this.phoneNumber = 0L;
+    }
     
     public ListPhonebook(String name, long phoneNumber){
         this.name = name;
@@ -24,8 +28,10 @@ public class ListPhonebook implements Phonebook{
 
     @Override
     public void insert(String name, long phoneNumber) {
-        phoneList.add(new ListPhonebook(name, phoneNumber));
-        size++;
+        ListPhonebook node = new ListPhonebook(name, phoneNumber);
+        System.out.println("Added node");
+        phoneList.add(node);
+        size = size + 1;
     }
 
     @Override
