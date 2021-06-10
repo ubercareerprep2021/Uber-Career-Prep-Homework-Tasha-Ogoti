@@ -9,7 +9,7 @@ public class BinarySearchTreePhonebook implements Phonebook{
     private Integer size = 0;
     
     //Used to set the phoneNumber after recursively going through the Binary Search Tree 
-    private long foundName = 0L;
+    private long foundName = -1L;
     
     public static class Node {
         public String name;
