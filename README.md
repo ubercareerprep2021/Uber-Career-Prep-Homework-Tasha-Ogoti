@@ -15,5 +15,9 @@
     ✔️ Ex 5
     ✔️ Ex 6
 
-### Assignment 3 - 
+### Assignment 3 - Sorting and Searching
+    ⏱️ Part 1
+    ⏱️ Part 2
+    ⏱️ Part 3
+    ⏱️ Part 4
 
