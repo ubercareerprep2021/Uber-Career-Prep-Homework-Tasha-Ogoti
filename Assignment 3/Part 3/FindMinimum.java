@@ -6,6 +6,9 @@
      Corner cases: isEmpty, return -1
                    length == 1, return -1
                    same integer all through, return -1 
+                   
+     Time complexity: O(N)
+     Space complexity: O(1)
 */
 public static int findMinimum(int[] arr){
         if(arr.isEmpty()){
