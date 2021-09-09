@@ -13,13 +13,10 @@
 */
 
 public boolean findElement(int[] arr, int target){
-    if(arr.isEmpty()){
-        return false; 
-    }
-
+    
     int limit = arr.length - 1;
   
-    if(limit == 0){
+    if(limit <= 0){
       return (arr[0] == target) ? true : false;
     }
   
