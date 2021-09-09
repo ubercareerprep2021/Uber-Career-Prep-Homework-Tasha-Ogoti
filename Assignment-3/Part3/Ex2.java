@@ -8,7 +8,7 @@
      Time complexity: O(N)
      Space complexity: O(1)
 */
-public static int findMinimum(int[] arr){
+public int findMinimum(int[] arr){
         if(arr.isEmpty()){
             return -1; 
         }
