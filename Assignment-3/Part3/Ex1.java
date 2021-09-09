@@ -26,7 +26,7 @@ public boolean findElement(int[] arr, int target){
     return recursiveBinary(arr,0,limit,target);
  }
  
-public boolean recursiveBinary(int[] arr, int start, int end, int target){
+public boolean binarySearch(int[] arr, int start, int end, int target){
     if(arr[start] == target){
       return true;
     }
