@@ -46,7 +46,7 @@ public boolean binarySearch(int[] arr, int start, int end, int target){
       return true;
     }
     else if(target > arr[mid+1] && target < arr[end]){
-      return recursiveBinary(arr, mid+1, end, target);
+      return binarySearch(arr, mid+1, end, target);
     }
-    return recursiveBinary(arr, start, mid, target);
+    return binarySearch(arr, start, mid, target);
 }
