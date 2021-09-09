@@ -1,5 +1,5 @@
 
-public static double pow(double base, int power){
+public double pow(double base, int power){
     double total = 1.0;
     boolean negativePower = (power < 0) ? true : false;
 
