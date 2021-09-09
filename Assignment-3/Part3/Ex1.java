@@ -12,7 +12,7 @@
      Space complexity: O(1)
 */
 
-public static boolean findElement(int[] arr, int target){
+public boolean findElement(int[] arr, int target){
     if(arr.isEmpty()){
         return false; 
     }
@@ -26,7 +26,7 @@ public static boolean findElement(int[] arr, int target){
     return recursiveBinary(arr,0,limit,target);
  }
  
-public static boolean recursiveBinary(int[] arr, int start, int end, int target){
+public boolean recursiveBinary(int[] arr, int start, int end, int target){
     if(arr[start] == target){
       return true;
     }
