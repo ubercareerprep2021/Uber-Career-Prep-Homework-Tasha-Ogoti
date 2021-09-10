@@ -1,40 +1,57 @@
-import java.util.List;
-import java.util.ArrayList;
+public class Trie {
+    
+  Node head;
 
-public static int numberOfStringsWithPrefix(List<String> listStr, String str, int prefixLength){
-  List<Integer> substringCounter = new ArrayList<>();
-  List<String> substrings = new ArrayList<>();
-        
-  int i=0;
- 
-  int endIndex = i + prefixLength;
- 
-  while( endIndex <= str.length()){
-    String sub = str.substring(i,endIndex);        
-    substrings.add(sub);
-    substringCounter.add(0);
-    i++;
-    endIndex++;
+  public Trie(){
+    head = new Node(' ');
   }
-        
-  for(int j=0; j<substrings.size(); j++){        
-    String findSub = substrings.get(j);
-           
-    for(int k=0; k<listStr.size(); k++){
-      if(listStr.get(k).contains(findSub)){
-          int count = substringCounter.get(j);
-        
-          substringCounter.set(j,count+1);
+
+  class Node{
+    char val;
+    Node[] children;
+    boolean isWord;
+
+    public Node(char value){
+      this.val = value;
+      this.children = new Node[26];
+      this.isWord = false;
+    }
+  }
+
+  public void add(String str){
+    Node current = head;
+
+    for(int i=0; i < str.length(); i++){
+      char letter = str.charAt(i);
+
+      if(current.children[letter-'a'] == null){
+        current.children[letter-'a'] = new Node(letter);
       }
-     }
-  }   
-  
-  int max = -1;
-  for(Integer a: substringCounter){
-      if(a > max){
-          max =a;
-      }      
+
+      current = current.children[letter-'a'];
+    }
+
+    current.isWord = true;
   }
-  return max;
-       
+
+  public int prefixCount(String prefix, int k){
+    Node current = head;
+
+    for(int i=0; i < k; i++){
+      char letter = prefix.charAt(i);
+      if(current.children[letter-'a'] == null){
+        return 0;
+      }
+      current = current.children[letter-'a'];
+    }
+
+    int count = 0;
+    for(int i=0; i < 26; i++){
+      if(current.children[i] != null){
+        count++;
+      }
+    }
+    return count;
+  }
+    
 }
